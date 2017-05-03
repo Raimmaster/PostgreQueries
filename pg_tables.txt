@@ -1,0 +1,91 @@
+     schemaname     |        tablename        | tableowner | tablespace | hasindexes | hasrules | hastriggers | rowsecurity 
+--------------------+-------------------------+------------+------------+------------+----------+-------------+-------------
+ public             | books                   | raim       |            | t          | f        | f           | f
+ public             | publishers              | raim       |            | t          | f        | f           | f
+ public             | shipments               | raim       |            | t          | f        | t           | f
+ public             | states                  | raim       |            | t          | f        | f           | f
+ public             | my_list                 | raim       |            | f          | f        | f           | f
+ public             | stock                   | raim       |            | t          | f        | f           | f
+ public             | numeric_values          | raim       |            | f          | f        | f           | f
+ public             | daily_inventory         | raim       |            | f          | f        | f           | f
+ public             | money_example           | raim       |            | f          | f        | f           | f
+ pg_catalog         | pg_statistic            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_type                 | raim       |            | t          | f        | f           | f
+ public             | customers               | raim       |            | t          | f        | f           | f
+ public             | book_queue              | raim       |            | f          | f        | f           | f
+ public             | stock_backup            | raim       |            | f          | f        | f           | f
+ public             | favorite_books          | raim       |            | f          | f        | f           | f
+ pg_catalog         | pg_authid               | raim       | pg_global  | t          | f        | f           | f
+ public             | distinguished_authors   | raim       |            | f          | f        | f           | f
+ public             | favorite_authors        | raim       |            | f          | f        | f           | f
+ public             | text_sorting            | raim       |            | t          | f        | f           | f
+ public             | subjects                | raim       |            | t          | f        | f           | f
+ public             | alternate_stock         | raim       |            | f          | f        | f           | f
+ public             | book_backup             | raim       |            | f          | f        | f           | f
+ public             | authors                 | raim       |            | t          | f        | t           | f
+ public             | employees               | raim       |            | t          | f        | t           | f
+ public             | schedules               | raim       |            | t          | f        | t           | f
+ public             | editions                | raim       |            | t          | t        | f           | f
+ pg_catalog         | pg_user_mapping         | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_attribute            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_proc                 | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_class                | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_attrdef              | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_constraint           | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_inherits             | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_index                | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_operator             | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_opfamily             | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_opclass              | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_am                   | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_amop                 | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_amproc               | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_language             | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_largeobject_metadata | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_database             | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_aggregate            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_rewrite              | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_trigger              | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_event_trigger        | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_description          | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_cast                 | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_enum                 | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_namespace            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_conversion           | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_depend               | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_db_role_setting      | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_tablespace           | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_pltemplate           | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_auth_members         | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_shdepend             | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_shdescription        | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_ts_config            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_ts_config_map        | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_ts_dict              | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_ts_parser            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_ts_template          | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_extension            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_foreign_data_wrapper | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_foreign_server       | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_foreign_table        | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_policy               | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_replication_origin   | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_default_acl          | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_seclabel             | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_shseclabel           | raim       | pg_global  | t          | f        | f           | f
+ pg_catalog         | pg_collation            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_range                | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_transform            | raim       |            | t          | f        | f           | f
+ pg_catalog         | pipeline_combine        | raim       |            | t          | f        | f           | f
+ pg_catalog         | pipeline_query          | raim       |            | t          | f        | f           | f
+ pg_catalog         | pipeline_stream         | raim       |            | t          | f        | f           | f
+ pg_catalog         | pg_largeobject          | raim       |            | t          | f        | f           | f
+ information_schema | sql_features            | raim       |            | f          | f        | f           | f
+ information_schema | sql_implementation_info | raim       |            | f          | f        | f           | f
+ information_schema | sql_languages           | raim       |            | f          | f        | f           | f
+ information_schema | sql_packages            | raim       |            | f          | f        | f           | f
+ information_schema | sql_parts               | raim       |            | f          | f        | f           | f
+ information_schema | sql_sizing              | raim       |            | f          | f        | f           | f
+ information_schema | sql_sizing_profiles     | raim       |            | f          | f        | f           | f
+(87 rows)
+
