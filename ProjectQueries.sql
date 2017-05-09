@@ -12,24 +12,23 @@ from pg_tables tab;
 
 --COLUMNS
 select
-	cols.table_catalog, cols.table_schema, cols.table_name, cols.columns_name, cols.column_default, cols.is_nullable,
-	cols.data_type, cols.character_maximum_length, udt_name
+	cols.table_catalog, cols.table_schema, 
+	cols.table_name, cols.column_name, 
+	cols.column_default, cols.is_nullable,
+	cols.data_type, cols.character_maximum_length, 
+	cols.udt_name
 from information_schema.columns cols;
 
 --CHECKS
 select 
-	chks.constraint_catalog, chks.constraint_schema, chks.check_clause
+	chks.constraint_name,
+	chks.constraint_catalog, 
+	chks.constraint_schema, 
+	chks.check_clause
 from information_schema.check_constraints chks;
 
 --PKs
---missing column name
-------OLD SQL
---select
---	refs_cons.constraint_catalog, refs_cons.constraint_schema, refs_cons.update_rule, refs_cons.delete_rule
---from information_schema.referential_constraints refs_cons;
-------OLD SQL
-
---Current one; Lists FKs too
+--Current one; can list FKs too 
 select 
 	cols.constraint_name, 
 	cols.table_catalog as db, 
@@ -42,7 +41,9 @@ from
 inner join 
 	information_schema.constraint_column_usage cols 
 on 
-	tabs.constraint_name = cols.constraint_name;
+	tabs.constraint_name = cols.constraint_name
+where 
+	tabs.constraint_type = 'PRIMARY KEY';
 
 
 --FKs
@@ -74,3 +75,11 @@ FROM
     JOIN information_schema.constraint_column_usage AS ccu
       ON ccu.constraint_name = tc.constraint_name
 WHERE constraint_type = 'FOREIGN KEY' 
+
+
+--missing column name
+------OLD SQL
+--select
+--	refs_cons.constraint_catalog, refs_cons.constraint_schema, refs_cons.update_rule, refs_cons.delete_rule
+--from information_schema.referential_constraints refs_cons;
+------OLD SQL
