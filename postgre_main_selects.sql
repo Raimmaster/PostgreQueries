@@ -15,4 +15,3 @@ select * from information_schema.schemata; --current db's accesable schemas
 select * from information_schema.tables; --table_catalog, table_schema
 select * from information_schema.triggers; --trigger_schema
 select * from information_schema.views; --table_catalog, table_schema
-
