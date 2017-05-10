@@ -113,7 +113,7 @@ BEGIN
     --FOREIGN KEY CONSTRAINTS
     FOR fk_row IN (
         SELECT
-            tc.constraint_schema, tc.constraint_name, 
+            tc.constraint_schema, tc.constraint_name as fk_constr, 
             tc.table_name, kcu.column_name, 
             ccu.table_name AS foreign_table_name,
             ccu.column_name AS foreign_column_name,
@@ -131,7 +131,7 @@ BEGIN
     )
     LOOP
         table_ddl := table_ddl || ' CONSTRAINT ';
-        table_ddl := table_ddl || fk_row.tc.constraint_name;
+        table_ddl := table_ddl || fk_row.fk_constr;
         table_ddl := table_ddl || ' FOREIGN KEY (' || fk_row.kcu.column_name ') ';
         table_ddl := table_ddl || ' REFERENCES ' || fk_row.ccu.table_name || '(';
         table_ddl := table_ddl || fk_row.ccu.column_name || ') ';
