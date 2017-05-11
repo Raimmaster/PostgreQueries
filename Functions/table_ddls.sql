@@ -109,15 +109,18 @@ BEGIN
     LOOP
         table_ddl := table_ddl || pk_row.column_name || ', ';
     END LOOP;
-    
+
+
+    table_ddl := SUBSTRING(table_ddl, 1, CHAR_LENGTH(table_ddl) - 1);
+    table_ddl := table_ddl || '),';
     --FOREIGN KEY CONSTRAINTS
     FOR fk_row IN (
         SELECT
             tc.constraint_schema, tc.constraint_name as fk_constr, 
-            tc.table_name, kcu.column_name, 
+            tc.table_name, kcu.column_name as fk_column_name, 
             ccu.table_name AS foreign_table_name,
             ccu.column_name AS foreign_column_name,
-            rfc.update_rule, rfc.delete_rule
+            rfc.update_rule as updt_rule, rfc.delete_rule as del_rule
         FROM 
             information_schema.table_constraints AS tc 
             JOIN information_schema.key_column_usage AS kcu
@@ -132,13 +135,13 @@ BEGIN
     LOOP
         table_ddl := table_ddl || ' CONSTRAINT ';
         table_ddl := table_ddl || fk_row.fk_constr;
-        table_ddl := table_ddl || ' FOREIGN KEY (' || fk_row.kcu.column_name ') ';
-        table_ddl := table_ddl || ' REFERENCES ' || fk_row.ccu.table_name || '(';
-        table_ddl := table_ddl || fk_row.ccu.column_name || ') ';
-        table_ddl := table_ddl || 'ON UPDATE ' || rfc.update_rule;
-        table_ddl := table_ddl || ' ON DELETE ' || rfc.delete_rule || ',';
+        table_ddl := table_ddl || ' FOREIGN KEY (' || fk_row.fk_column_name || ') ';
+        table_ddl := table_ddl || ' REFERENCES ' || fk_row.foreign_table_name || '(';
+        table_ddl := table_ddl || fk_row.foreign_column_name || ') ';
+        table_ddl := table_ddl || 'ON UPDATE ' || fk_row.updt_rule;
+        table_ddl := table_ddl || ' ON DELETE ' || fk_row.del_rule || ',';
     END LOOP;
-
+    table_ddl := SUBSTRING(table_ddl, 1, CHAR_LENGTH(table_ddl) - 1);
     table_ddl := table_ddl || ');';
     RETURN table_ddl;
 END;
