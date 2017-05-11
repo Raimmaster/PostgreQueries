@@ -48,7 +48,8 @@ where
 
 --FKs
 SELECT
-    table_schema.constraint_schema, tc.constraint_name, tc.table_name, kcu.column_name, 
+    tc.constraint_schema, tc.constraint_name, 
+    tc.table_name, kcu.column_name, 
     ccu.table_name AS foreign_table_name,
     ccu.column_name AS foreign_column_name 
 FROM 
@@ -58,6 +59,24 @@ FROM
     JOIN information_schema.constraint_column_usage AS ccu
       ON ccu.constraint_name = tc.constraint_name
 WHERE constraint_type = 'FOREIGN KEY' 
+
+--FK 2
+SELECT
+    tc.constraint_schema, tc.constraint_name, 
+    tc.table_name, kcu.column_name, 
+    ccu.table_name AS foreign_table_name,
+    ccu.column_name AS foreign_column_name,
+    rfc.update_rule, rfc.delete_rule
+FROM 
+    information_schema.table_constraints AS tc 
+    JOIN information_schema.key_column_usage AS kcu
+      ON tc.constraint_name = kcu.constraint_name
+    JOIN information_schema.constraint_column_usage AS ccu
+      ON ccu.constraint_name = tc.constraint_name
+    JOIN information_schema.referential_constraints AS rfc
+      ON tc.constraint_name = rfc.constraint_name
+WHERE constraint_type = 'FOREIGN KEY'; 
+
 
 --Inciso 3 - Indexes
 --No PKs nor FKs
