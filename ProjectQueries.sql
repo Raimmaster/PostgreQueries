@@ -95,10 +95,27 @@ FROM
       ON ccu.constraint_name = tc.constraint_name
 WHERE constraint_type = 'FOREIGN KEY' 
 
+----SCHEMAS
+select 
+	pn.nspname 
+from 
+	pg_namespace pn 
+inner join 
+	pg_user pu 
+on 
+	pu.usesysid = pn.nspowner
 
+----CHECKS
+select 
+	pci.conname 
+from pg_constraint pci 
+inner join pg_namespace pn on pci.connamespace = pn.oid 
+inner join pg_user pu on pu.usesysid = pn.nspowner
+where pci.contype = 'c'
 --missing column name
 ------OLD SQL
 --select
---	refs_cons.constraint_catalog, refs_cons.constraint_schema, refs_cons.update_rule, refs_cons.delete_rule
+--	refs_cons.constraint_catalog, refs_cons.constraint_schema, 
+--	refs_cons.update_rule, refs_cons.delete_rule
 --from information_schema.referential_constraints refs_cons;
 ------OLD SQL
